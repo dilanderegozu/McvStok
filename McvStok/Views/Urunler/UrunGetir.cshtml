@@ -23,6 +23,11 @@
 
         <br />
 
+
+        @Html.LabelFor(m => m.URUNKATEGORI)
+        @Html.DropDownListFor(m => m.TBLKATEGORILER.KATEGORIID,(List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+
+        <br />
         @Html.LabelFor(m => m.FIYAT)
         @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control" })
 

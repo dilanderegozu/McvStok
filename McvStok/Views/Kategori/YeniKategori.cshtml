@@ -1,4 +1,5 @@
-﻿@{
+﻿@model McvStok.Models.Entity.TBLKATEGORILER
+@{
     ViewBag.Title = "YeniKategori";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
@@ -8,7 +9,8 @@
         <label>
             Kategori Adı
         </label>
-        <input type="text" name="KATEGORIAD"  />
+        @Html.TextBoxFor(m=>m.KATEGORIAD,new {@class ="form-control"})
+        @Html.ValidationMessageFor(m=>m.KATEGORIAD,"",new {@style ="color:red"})
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-info">
