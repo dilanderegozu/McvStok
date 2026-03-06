@@ -30,5 +30,27 @@ namespace McvStok.Controllers
             db.SaveChanges();
             return View();
         }
+        public ActionResult SIL(int id)
+        {
+            var deger = db.TBLMUSTERILER.Find(id);
+            db.TBLMUSTERILER.Remove(deger);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult MusteriGetir(int id)
+        {
+            var musteri = db.TBLMUSTERILER.Find(id);
+            return View("MusteriGetir", musteri);
+        }
+
+        public ActionResult Guncelle(TBLMUSTERILER p1)
+        {
+            var musterı = db.TBLMUSTERILER.Find(p1.MUSTERIID);
+        
+            musterı.MUSTERIAD = p1.MUSTERIAD;
+            musterı.MUSTERISOYAD = p1.MUSTERISOYAD;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

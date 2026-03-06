@@ -39,5 +39,28 @@ namespace McvStok.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-    }
+        public ActionResult SIL(int id )
+        {
+            var urun = db.TBLURUNLER.Find(id);
+            db.TBLURUNLER.Remove(urun);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult UrunGetir(int id)
+        {
+            var urun = db.TBLURUNLER.Find(id);
+            return View("UrunGetir", urun);
+        }
+        public ActionResult GUNCELLE(TBLURUNLER p1)
+        {
+            var urun = db.TBLURUNLER.Find(p1.URUNID);
+            urun.URUNAD = p1.URUNAD;
+            urun.MARKA = p1.MARKA;
+            urun.FIYAT = p1.FIYAT;
+            urun.STOK = p1.STOK;
+
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+    } 
 }
