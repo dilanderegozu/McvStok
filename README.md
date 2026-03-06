@@ -31,27 +31,15 @@ Projede aşağıdaki teknolojilerden yararlanılmıştır:
 
 ---
 
-## Kurulum
+## ⚙️ Kurulum
 
-1. Projeyi bilgisayarınıza klonlayın:
-   ```bash
-   git clone https://github.com/dilanderegozu/MvcStok.git
+1. Projeyi klonlayın:
+```bash
+git clone https://github.com/dilanderegozu/McvStok.git
+
 2. Visual Studio ile projeyi açın.
 
 3.SQL Server’da gerekli veritabanını oluşturun ve Web.config dosyasındaki bağlantı stringini güncelleyin.
 
 4.Projeyi çalıştırın ve tarayıcıda görüntüleyin.
 
-Kullanım
-
--Yönetim paneline giriş yaparak kategorileri, ürünleri ve müşterileri yönetebilirsiniz.
-
--Satış modülü ile ürün ve müşteri eşleşmesi yaparak satış işlemleri gerçekleştirebilirsiniz.
-
-- ekranlarında sayfalama sayesinde veri yoğunluğu kolayca yönetilir.
-
--Popup uyarılar ve modern arayüz ile kullanıcı deneyimi iyileştirilmiştir.
-
-Lisans
-
-Bu proje MIT Lisansı ile lisanslanmıştır.
