@@ -1,0 +1,36 @@
+﻿@using McvStok.Models.Entity
+@model List<TBLMUSTERILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>MÜŞTERİ ID</th>
+        <th>MÜŞTERİ ADI</th>
+        <th>MÜŞTERİ SOYADI</th>
+        <th>SİL </th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <td>@ktgr.MUSTERIID</td>
+                <td>@ktgr.MUSTERIAD</td>
+                <td>@ktgr.MUSTERISOYAD</td>
+                <td>SİL </td>
+                <td>GÜNCELLE</td>
+                <td>
+                    <a href="/MUSTERİ/SIL/@ktgr.MUSTERIID" class="btn btn-danger">SİL </a>
+                </td>
+                <td>
+                    <a href="/MUSTERİ/GUNCELLE/@ktgr.MUSTERIID" class="btn btn-success">GÜNCELLE </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Musteri/YeniMusterı/" class="btn btn-primary">YENİ MÜŞTERİ EKLE</a>
