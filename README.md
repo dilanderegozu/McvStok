@@ -33,13 +33,12 @@ Projede aşağıdaki teknolojilerden yararlanılmıştır:
 
 ## ⚙️ Kurulum
 
-1. Projeyi klonlayın:
-```bash
-git clone https://github.com/dilanderegozu/McvStok.git
+1. Projeyi bilgisayarınıza klonlayın:
+   ```bash
+   git clone https://github.com/dilanderegozu/MvcStok.git
 
 2. Visual Studio ile projeyi açın.
 
-3.SQL Server’da gerekli veritabanını oluşturun ve Web.config dosyasındaki bağlantı stringini güncelleyin.
+3. SQL Server’da gerekli veritabanını oluşturun ve Web.config dosyasındaki bağlantı stringini güncelleyin.
 
-4.Projeyi çalıştırın ve tarayıcıda görüntüleyin.
-
+4. Projeyi çalıştırın ve tarayıcıda görüntüleyin.
