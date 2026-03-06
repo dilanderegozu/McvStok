@@ -42,3 +42,19 @@ Projede aşağıdaki teknolojilerden yararlanılmıştır:
 3. SQL Server’da gerekli veritabanını oluşturun ve Web.config dosyasındaki bağlantı stringini güncelleyin.
 
 4. Projeyi çalıştırın ve tarayıcıda görüntüleyin.
+## Ekran Görüntüleri
+
+### Kategori Yönetimi
+![Kategori Listesi](assets/kategori.png)
+![Kategori Ekleme](assets/kategoriekle.png)
+
+### Ürün Yönetimi
+![Ürün Ekleme](assets/ürünekle.png)
+![Ürün Listesi](assets/ürünler.png)
+
+### Müşteri Yönetimi
+![Müşteri Listesi](assets/müşteri.png)
+
+### Satış Modülü
+![Satış Listesi](assets/satış.png)
+![Satış Ekleme](assets/satışekle.png)
