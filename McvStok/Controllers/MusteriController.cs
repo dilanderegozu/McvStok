@@ -12,10 +12,16 @@ namespace McvStok.Controllers
     {
         // GET: Musteri
         MvcDbStokEntities2 db = new MvcDbStokEntities2();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var degerler = db.TBLMUSTERILER.ToList();
-            return View(degerler);
+            var degerler = from d in db.TBLMUSTERILER select d;
+            if(!string.IsNullOrEmpty(p))
+            {
+                degerler = degerler.Where(m => m.MUSTERIAD.Contains(p));
+            }
+            return View(degerler.ToList());
+            //var degerler = db.TBLMUSTERILER.ToList();
+            //return View(degerler);
         }
         [HttpGet]
         public ActionResult YeniMusterı()
@@ -32,6 +38,10 @@ namespace McvStok.Controllers
         }
         public ActionResult SIL(int id)
         {
+            var satislar = db.TBLSATISLAR.Where(x => x.MUSTERI == id).ToList();
+            db.TBLSATISLAR.RemoveRange(satislar);
+
+
             var deger = db.TBLMUSTERILER.Find(id);
             db.TBLMUSTERILER.Remove(deger);
             db.SaveChanges();

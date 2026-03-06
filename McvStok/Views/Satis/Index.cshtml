@@ -1,0 +1,70 @@
+﻿@using McvStok.Models.Entity
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<TBLSATISLAR>
+
+
+@{
+    ViewBag.Title = "Satış Listesi";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Satışlar</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ÜRÜN</th>
+        <th>MÜŞTERİ</th>
+        <th>ADET</th>
+        <th>FİYAT</th>
+    </tr>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.TBLURUNLER.URUNAD</td>
+                <td>@x.TBLMUSTERILER.MUSTERIAD @x.TBLMUSTERILER.MUSTERISOYAD</td>
+                <td>@x.ADET</td>
+                <td>@x.FIYAT</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }))
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Satış Yap</button>
+
+
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Satış Yapma Ekranı</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form method="post" action="/Satis/YeniSatis">
+                <div class="modal-body">
+                    <label>Ürün</label>
+                    @Html.DropDownList("URUNID", (List<SelectListItem>)ViewBag.urunler, new { @class = "form-control" })
+                    <br />
+
+                    <label>Müşteri</label>
+                    @Html.DropDownList("MUSTERIID", (List<SelectListItem>)ViewBag.musteriler, new { @class = "form-control" })
+                    <br />
+
+                    <label>Adet</label>
+                    <input type="number" name="ADET" class="form-control" />
+                    <br />
+
+                    <label>Fiyat</label>
+                    <input type="text" name="FIYAT" class="form-control" />
+                    <br />
+
+                    <button type="submit" class="btn btn-success">Satış Yap</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

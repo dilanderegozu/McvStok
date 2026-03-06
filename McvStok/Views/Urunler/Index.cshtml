@@ -5,20 +5,23 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-
-<table class="table table-bordered">
-    <tr>
-        <th>
-            ÜRÜN ID
-        </th>
-        <th>ÜRÜN ADI</th>
-        <th>MARKASI</th>
-        <th>KATEGORİ</th>
-        <th>FİYAT</th>
-        <th>STOK</th>
-        <th>SİL </th>
-        <th>GÜNCELLE</th>
-    </tr>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css" />
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+<table id="tbl1" class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>ÜRÜN ID</th>
+            <th>ÜRÜN ADI</th>
+            <th>MARKASI</th>
+            <th>KATEGORİ</th>
+            <th>FİYAT</th>
+            <th>STOK</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
     <tbody>
         @foreach (var ktgr in Model)
         {
@@ -27,18 +30,20 @@
                 <td>@ktgr.URUNAD</td>
                 <td>@ktgr.MARKA</td>
                 <td>@ktgr.TBLKATEGORILER.KATEGORIAD</td>
-                <td>@ktgr.FIYAT</td>
-                <td>@ktgr.STOK</td>
-         
+                <td class="text-right">@String.Format("{0:C}", ktgr.FIYAT)</td>
+                <td class="text-right">@ktgr.STOK</td>
                 <td>
-                    <a href="/Urunler/SIL/@ktgr.URUNID" class="btn btn-danger">SİL</a>
+                    <a href="/Urunler/SIL/@ktgr.URUNID" class="btn btn-danger btn-sm">SİL</a>
                 </td>
                 <td>
-                    <a href="/Urunler/UrunGetir/@ktgr.URUNID" class="btn btn-success">GÜNCELLE </a>
+                    <a href="/Urunler/UrunGetir/@ktgr.URUNID" class="btn btn-success btn-sm">GÜNCELLE</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<a href="/Urunler/UrunEkle" class="btn btn-primary">YENİ ÜRÜN EKLE</a>
 
+<a href="/Urunler/UrunEkle" class="btn btn-primary mt-3">YENİ ÜRÜN EKLE</a>
+<script>
+    $('#tbl1').DataTable();
+</script>
